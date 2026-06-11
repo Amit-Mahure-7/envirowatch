@@ -1,0 +1,71 @@
+.wrapper { display: flex; flex-direction: column; gap: 8px; }
+
+.form {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 4px 8px;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.form:focus-within { border-color: var(--accent-blue); }
+
+.searchIcon { font-size: 14px; flex-shrink: 0; }
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 14px;
+  padding: 6px 4px;
+}
+
+.input::placeholder { color: var(--text-muted); }
+
+.btn {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: var(--accent-blue);
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: rgba(0, 212, 255, 0.2); }
+
+.gpsBtn { padding: 6px 10px; font-size: 14px; }
+
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.quickBtn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quickBtn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background: rgba(0, 212, 255, 0.06);
+}

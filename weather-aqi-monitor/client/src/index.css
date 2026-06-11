@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary:   #0A0F1E;
+  --bg-card:      #1E2A45;
+  --bg-card-dark: #0A1628;
+  --accent-blue:  #00D4FF;
+  --accent-amber: #FF8C42;
+  --text-primary: #E2E8F0;
+  --text-muted:   #8892A4;
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-blue:  rgba(0, 212, 255, 0.2);
+  --border-amber: rgba(255, 140, 66, 0.2);
+  --font-main:    'Space Grotesk', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --radius-sm:    8px;
+  --radius-md:    10px;
+  --radius-lg:    14px;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: #334; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+
+/* Reusable card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+}
+
+.card--blue  { border-color: var(--border-blue); }
+.card--amber { border-color: var(--border-amber); }
+
+/* Section label */
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Mono number */
+.mono { font-family: var(--font-mono); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* ── Light Mode ─────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary:   #F0F4F8;
+  --bg-card:      #FFFFFF;
+  --bg-card-dark: #E8EEF4;
+  --accent-blue:  #0099BB;
+  --accent-amber: #E06A20;
+  --text-primary: #1A202C;
+  --text-muted:   #5A6478;
+  --border:       rgba(0, 0, 0, 0.1);
+  --border-blue:  rgba(0, 153, 187, 0.25);
+  --border-amber: rgba(224, 106, 32, 0.25);
+}
+
+[data-theme="light"] body { background: #F0F4F8; }

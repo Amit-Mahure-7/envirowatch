@@ -1,0 +1,72 @@
+.card { display: flex; flex-direction: column; gap: 10px; }
+
+.gaugeRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gaugeWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.gaugeCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.aqiNum   { font-size: 32px; font-weight: 500; line-height: 1; }
+.aqiLabel { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+
+.aqiRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aqiStatus { font-size: 14px; font-weight: 500; }
+
+.aqiScale {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.scaleSeg { flex: 1; position: relative; }
+
+.scaleLabel {
+  display: none; /* shown on hover only via CSS */
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  background: #222;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.scaleSeg:hover .scaleLabel { display: block; }
+
+.station {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dominant { font-size: 11px; color: var(--text-muted); }
+.domVal   { color: var(--accent-amber); font-family: var(--font-mono); font-weight: 500; }
+
+@media (max-width: 400px) {
+  .gaugeRow { flex-direction: column; }
+}

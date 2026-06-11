@@ -1,0 +1,192 @@
+.wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.toggleBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.toggleBar:hover { background: rgba(255,255,255,0.03); }
+
+.toggleIcon { font-size: 18px; }
+.toggleText { flex: 1; font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.toggleArrow { color: var(--text-muted); font-size: 11px; }
+
+.panel {
+  padding: 0 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1;
+  min-width: 120px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus { border-color: var(--accent-blue); }
+.input::placeholder { color: var(--text-muted); }
+
+.vs {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+.compareBtn {
+  background: var(--accent-blue);
+  border: none;
+  color: #000;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.compareBtn:hover { opacity: 0.85; }
+
+.colsRow {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 4px;
+}
+
+.divider {
+  width: 1px;
+  background: var(--border);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+.colLoading, .colError, .colEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 120px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.spinner {
+  width: 24px; height: 24px;
+  border: 2px solid rgba(0,212,255,0.2);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.cityName { font-size: 15px; font-weight: 500; }
+
+.tempRow { display: flex; align-items: center; gap: 6px; }
+.icon    { width: 40px; height: 40px; }
+.temp    { font-size: 32px; font-weight: 500; }
+
+.desc { font-size: 12px; color: var(--text-muted); text-transform: capitalize; }
+
+.aqiBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  width: fit-content;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.statVal   { font-size: 12px; font-weight: 500; }
+
+.winners {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.winnersTitle { font-size: 12px; font-weight: 500; margin-bottom: 10px; }
+
+.winnersRow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.winnerBadge {
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+}
+
+.winnerLabel { color: var(--text-muted); }
+.winnerCity  { color: var(--accent-blue); font-weight: 500; }
+
+@media (max-width: 500px) {
+  .colsRow { flex-direction: column; }
+  .divider { width: 100%; height: 1px; margin: 8px 0; }
+}

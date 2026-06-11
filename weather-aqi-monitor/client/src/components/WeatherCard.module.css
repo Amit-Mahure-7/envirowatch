@@ -1,0 +1,75 @@
+.card { display: flex; flex-direction: column; gap: 12px; }
+
+.locationRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cityName { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+.coords   { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+
+.mainRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tempBig  { font-size: 54px; font-weight: 500; line-height: 1; }
+.unit     { font-size: 26px; color: var(--text-muted); }
+.feelsLike { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.description { font-size: 13px; color: #B0BAC8; margin-top: 4px; }
+
+.icon { width: 72px; height: 72px; }
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.statItem {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+
+.statLabel {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.statVal { font-size: 13px; font-weight: 500; }
+
+.minmax {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minLabel, .maxLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.minmaxBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.minmaxFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00D4FF, #FF8C42);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}

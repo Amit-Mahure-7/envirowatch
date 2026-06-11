@@ -1,0 +1,25 @@
+.card { display: flex; flex-direction: column; gap: 10px; }
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+}
+
+.chartWrap { position: relative; height: 200px; }
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
