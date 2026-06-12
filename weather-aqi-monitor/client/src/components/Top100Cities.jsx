@@ -1,3 +1,4 @@
+const API_BASE = import.meta.env.VITE_API_URL || '';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { tempColor } from '../utils/helpers';
@@ -38,7 +39,7 @@ export default function Top100Cities() {
     const results = [];
     const batch = async (list) => {
       const settled = await Promise.allSettled(
-        list.map(city => axios.get('/api/weather', { params: { city } }))
+        list.map(city => axios.get(`${API_BASE}/api/weather`, { params: { city } }))
       );
       settled.forEach((r, i) => {
         if (r.status === 'fulfilled') {

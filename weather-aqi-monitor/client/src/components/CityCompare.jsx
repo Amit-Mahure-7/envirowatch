@@ -1,13 +1,15 @@
+const API_BASE = import.meta.env.VITE_API_URL || '';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getAQIInfo, tempColor, getWeatherIconUrl } from '../utils/helpers';
 import styles from './CityCompare.module.css';
 
 async function fetchCityData(city) {
+  const API_BASE = import.meta.env.VITE_API_URL || '';
   const params = { city };
   const [w, a] = await Promise.all([
-    axios.get('/api/weather', { params }),
-    axios.get('/api/aqi', { params }),
+    axios.get(`${API_BASE}/api/weather`, { params }),
+    axios.get(`${API_BASE}/api/aqi`, { params }),
   ]);
   return { weather: w.data, aqi: a.data };
 }
