@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const DEFAULT_CITY = 'Nagpur';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export function useWeatherData() {
   const [weather, setWeather]   = useState(null);
@@ -25,9 +26,9 @@ export function useWeatherData() {
       }
 
       const [weatherRes, aqiRes, forecastRes] = await Promise.all([
-        axios.get('/api/weather', { params }),
-        axios.get('/api/aqi', { params }),
-        axios.get('/api/forecast', { params }),
+        axios.get(`${API_BASE}/api/weather`, { params }),
+        axios.get(`${API_BASE}/api/aqi`, { params }),
+        axios.get(`${API_BASE}/api/forecast`, { params }),
       ]);
 
       setWeather(weatherRes.data);
@@ -41,7 +42,6 @@ export function useWeatherData() {
     }
   }, []);
 
-  // Initial load — try geolocation first, fallback to default city
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -50,17 +50,13 @@ export function useWeatherData() {
           setLocation(coords);
           fetchAll(coords);
         },
-        () => {
-          // Permission denied — use default city
-          fetchAll(location);
-        }
+        () => { fetchAll(location); }
       );
     } else {
       fetchAll(location);
     }
   }, []);
 
-  // Auto-refresh every 10 minutes
   useEffect(() => {
     const interval = setInterval(() => fetchAll(location), 10 * 60 * 1000);
     return () => clearInterval(interval);
